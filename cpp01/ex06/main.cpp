@@ -9,7 +9,7 @@ int	main(int argc, char *argv[])
 	}
 	else
 	{
-		std::cout << "Usage: ./karenFilter [level (OR string)]" << std::endl;
+		std::cout << "Usage: ./karenFilter [level]" << std::endl;
 		return 1;
 	}
 	return 0;

@@ -4,9 +4,7 @@ Zombie::Zombie(void)
 {}
 
 Zombie::Zombie(std::string name): _name(name)
-{
-	return;
-}
+{}
 
 Zombie::~Zombie(void)
 {

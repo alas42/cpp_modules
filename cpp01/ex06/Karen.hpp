@@ -11,7 +11,7 @@ class Karen
 		void	complain(std::string level);
 
 	private:
-		void (Karen::*_func[4])( void );
+		void	(Karen::*_func[4])( void );
 		void	_debug(void);
 		void	_info(void);
 		void	_warning(void);

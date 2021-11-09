@@ -13,8 +13,8 @@ void	HumanB::attack(void) const
 	if (this->_weapon != 0)
 	{
 		std::string weapon_type = this->_weapon->getType();
-		std::cout << this->_name << " attacks with his ";
-		std::cout << weapon_type <<  std::endl;
+		std::cout << this->_name << " attacks with his "
+			<< weapon_type <<  std::endl;
 	}
 	else
 	{

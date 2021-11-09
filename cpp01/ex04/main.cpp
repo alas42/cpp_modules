@@ -10,11 +10,12 @@ int	main(int argc, char *argv[])
 		std::cout << "Usage: ./replace [filename] [string1] [string2]" << std::endl;
 		return (1);
 	}
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
-	std::string filename = argv[1];
+
+	std::string content;
+	std::string s1(argv[2]);
+	std::string s2(argv[3]);
+	std::string filename(argv[1]);
 	std::string	outfile = filename;
-	outfile.append(".replace");
 
 	if (s1.empty() || s2.empty() || filename.empty())
 	{
@@ -22,25 +23,26 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 
-	std::ifstream ifs(filename.c_str());
-	std::ofstream output_file(outfile.c_str());
+	outfile.append(".replace");
+	std::ifstream ifs(filename);
+	std::ofstream ofs(outfile);
 	std::stringstream buffer;
 	buffer << ifs.rdbuf();
-	
-	std::string content = buffer.str();
-	size_t	npos = -1;
+	content = buffer.str();
+
 	size_t	pos = 0;
 	size_t	len_s1 = s1.length();
 	pos = content.find(s1);
-	while (pos != npos)
+
+	while (pos != (size_t) -1)
 	{
-		std::cout << "found one at " << pos << std::endl; 
 		content.erase(pos, len_s1);
 		content.insert(pos, s2);
 		pos = content.find(s1);
 	}
-	output_file << content;
+
+	ofs << content;
 	ifs.close();
-	output_file.close();
+	ofs.close();
 	return (0);
 }
