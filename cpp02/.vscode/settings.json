@@ -1,0 +1,13 @@
+{
+	"files.associations": {
+		"*.tcc": "cpp",
+		"string_view": "cpp",
+		"algorithm": "cpp",
+		"istream": "cpp",
+		"limits": "cpp",
+		"type_traits": "cpp",
+		"cmath": "cpp",
+		"iostream": "cpp",
+		"ostream": "cpp"
+	}
+}

@@ -51,11 +51,11 @@ void	Karen::complain(std::string level)
 	switch (int_level)
 	{
 		case 0 :	(this->*_func[0])();
-					std::cout << "\n";
+					std::cout << std::endl;
 		case 1 :	(this->*_func[1])();
-					std::cout << "\n";
+					std::cout << std::endl;
 		case 2 :	(this->*_func[2])();
-					std::cout << "\n";
+					std::cout << std::endl;
 		case 3 :	(this->*_func[3])();
 					break;
 		default :	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

@@ -1,9 +1,7 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void): _fixed(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+{	std::cout << "Default constructor called" << std::endl; }
 
 Fixed::Fixed(Fixed const &object)
 {
@@ -20,9 +18,7 @@ Fixed& Fixed::operator = (Fixed const &other)
 }
 
 Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{	std::cout << "Destructor called" << std::endl; }
 
 int		Fixed::getRawBits(void) const
 {

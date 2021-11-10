@@ -1,9 +1,7 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void): _fixed(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+{	std::cout << "Default constructor called" << std::endl; }
 
 Fixed::Fixed(int const n)
 {
@@ -31,78 +29,8 @@ Fixed& Fixed::operator = (Fixed const &other)
 	return *this;
 }
 
-bool Fixed::operator < (Fixed const &other) const
-{
-	bool is_smaller = this->_fixed < other.getRawBits();
-	return is_smaller;
-}
-
-bool Fixed::operator > (Fixed const &other) const
-{
-	bool is_greater = this->_fixed > other.getRawBits();
-	return is_greater;
-}
-
-bool Fixed::operator <= (Fixed const &other) const
-{
-	bool is_smaller_or_equal = this->_fixed <= other.getRawBits();
-	return is_smaller_or_equal;
-}
-
-bool Fixed::operator >= (Fixed const &other) const
-{
-	bool is_greater_or_equal = this->_fixed >= other.getRawBits();
-	return is_greater_or_equal;
-}
-
-bool Fixed::operator == (Fixed const &other) const
-{
-	bool is_equal = this->_fixed == other.getRawBits();
-	return is_equal;
-}
-
-bool Fixed::operator != (Fixed const &other) const
-{
-	bool is_not_equal = this->_fixed != other.getRawBits();
-	return is_not_equal;
-}
-
-Fixed Fixed::operator * (Fixed const &other)
-{
-	Fixed new_fixed;
-	new_fixed.setRawBits(this->_fixed * other.getRawBits());
-	return new_fixed;
-}
-
-Fixed Fixed::operator + (Fixed const &other)
-{
-	Fixed new_fixed;
-	new_fixed.setRawBits(this->_fixed + other.getRawBits());
-	return new_fixed;
-}
-
-Fixed Fixed::operator / (Fixed const &other)
-{
-	Fixed 	new_fixed;
-	int		denom = other.getRawBits();
-	if (denom != 0)
-		new_fixed.setRawBits(this->_fixed / other.getRawBits());
-	else
-		new_fixed.setRawBits(0);
-	return new_fixed;
-}
-
-Fixed Fixed::operator - (Fixed const &other)
-{
-	Fixed new_fixed;
-	new_fixed.setRawBits(this->_fixed - other.getRawBits());
-	return new_fixed;
-}
-
 Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{	std::cout << "Destructor called" << std::endl; }
 
 int		Fixed::toInt(void) const
 {

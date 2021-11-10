@@ -12,7 +12,7 @@ class Fixed
 		Fixed(int const n);
 		Fixed(float const f);
 		Fixed& operator = (Fixed const &other);
-	
+
 		bool operator < (Fixed const &other) const;
 		bool operator > (Fixed const &other) const;
 		bool operator >= (Fixed const &other) const;
