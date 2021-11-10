@@ -13,20 +13,20 @@ Karen::~Karen(void)
 
 void	Karen::_debug(void)
 {
-	std::cout << "I love to get extra baconfor my 7XL-double-cheese-triple-pickle-special-ketchup burger."
+	std::cout << "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger."
 		<< " I just love it!" << std::endl;
 }
 
 void	Karen::_info(void)
 {
-	std::cout << "I cannot believe adding extrabacon cost more money. You don’t put enough!"
+	std::cout << "I cannot believe adding extra bacon cost more money. You don't put enough!"
 		<< " If you did I would not have to askfor it!" << std::endl;
 }
 
 void	Karen::_warning(void)
 {
 	std::cout << "I think I deserve to have some extra bacon for free."
-		<< " I’ve beencoming here for years and you just started working here last month." << std::endl;
+		<< " I've been coming here for years and you just started working here last month." << std::endl;
 }
 
 void	Karen::_error(void)
@@ -46,5 +46,5 @@ void	Karen::complain(std::string level)
 			return ;
 		}
 	}
-	std::cout << "Level of complain Not Found" << std::endl;
+	std::cout << "Level of complaint not found" << std::endl;
 }

@@ -2,7 +2,6 @@ NAME = strings
 
 SOURCES_FILES = main.cpp
 
-
 OBJS = $(SOURCES_FILES:.cpp=.o)
 
 CPPFLAGS = -Wall -Werror -Wextra

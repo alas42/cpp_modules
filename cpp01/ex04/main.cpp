@@ -11,6 +11,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 
+	std::stringstream buffer;
+	std::ofstream ofs;
+	std::ifstream ifs;
 	std::string content;
 	std::string s1(argv[2]);
 	std::string s2(argv[3]);
@@ -24,9 +27,21 @@ int	main(int argc, char *argv[])
 	}
 
 	outfile.append(".replace");
-	std::ifstream ifs(filename);
-	std::ofstream ofs(outfile);
-	std::stringstream buffer;
+
+	ifs.open(filename.c_str());
+	if (!ifs.is_open())
+	{
+		std::cout << "the infile could not be opened: be sure to enter a valid filename" << std::endl;
+		return (1);
+	}
+
+	ofs.open(outfile.c_str(), std::ios::trunc);
+	if (!ofs.is_open())
+	{
+		std::cout << "The outfile could not be opened/created, be sure to enter a valid filename" << std::endl;
+		return (1);
+	}
+
 	buffer << ifs.rdbuf();
 	content = buffer.str();
 
