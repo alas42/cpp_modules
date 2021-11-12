@@ -21,11 +21,13 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		/*
 		** Other constructors
 		*/
+		DiamondTrap(std::string name);
+	
 		/*
 		** Misc
 		*/
 		void whoAmI(void) const;
-
+		void attack(std::string const & target);
 		/*
 		** Guetters and setters
 		*/

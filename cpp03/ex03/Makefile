@@ -1,13 +1,15 @@
-NAME = claptrap
+NAME = diamant
 
 SOURCES_FILES = ClapTrap.cpp \
 	ScavTrap.cpp \
 	FragTrap.cpp \
+	DiamondTrap.cpp \
 	main.cpp
 
 HEADER_FILES = ClapTrap.hpp \
 	ScavTrap.hpp \
-	FragTrap.hpp
+	FragTrap.hpp \
+	DiamondTrap.hpp
 
 OBJS = $(SOURCES_FILES:.cpp=.o)
 

@@ -63,9 +63,21 @@ void	ScavTrap::guardGate(void)
 
 void	ScavTrap::attack(std::string const & target)
 {
-	std::cout << "Oh My! The one and only " << _name << ", a true ScavTrap,"
-		<< " has attacked " << target << " with an attack damage of " << _attack_damage << "!"
-		<< std::endl;
+	if (this->_energy_points > 0)
+	{
+		this->_energy_points -= 1;
+		std::cout << "Oh My! The one and only " << _name << ", a true ScavTrap,"
+			<< " has attacked " << target << " with an attack damage of " << _attack_damage << "!"
+			<< " (-1 energy point)"
+			<< std::endl;
+	}
+	else
+	{
+		std::cout << "Oh My! The one and only " << _name << ", a true ScavTrap,"
+			<< " wants to attack " << target << " but cannot, he has " << this->_energy_points
+			<< " energy points!"
+			<< std::endl;
+	}
 }
 /*
 ** End of Misc

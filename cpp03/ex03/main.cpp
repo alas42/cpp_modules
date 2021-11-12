@@ -1,34 +1,18 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
 	{
-		ClapTrap cp0("Alexandre");
-		cp0.beRepaired(1);
-		cp0.takeDamage(1);
-		cp0.beRepaired(1);
-		cp0.takeDamage(10);
-		cp0.beRepaired(10);
+		DiamondTrap dt0("DIAMANT");
+		dt0.guardGate();
+		dt0.highFivesGuys();
+		dt0.whoAmI();
+		dt0.attack("ONYX");
+		dt0.takeDamage(50);
+		dt0.beRepaired(50);
 	}
-	{
-		std::cout << std::endl;
-		ScavTrap st0("Alexandre");
-		st0.beRepaired(1);
-		st0.takeDamage(1);
-		st0.beRepaired(1);
-		st0.takeDamage(10);
-		st0.beRepaired(10);
-		st0.guardGate();
-		st0.attack("Porcinet");
-		st0.attack("Pumba");
-		st0.takeDamage(9);
-		st0.beRepaired(15);
-	}
-	{
-		std::cout << std::endl;
-		FragTrap ft0("M0x");
-		ft0.highFivesGuys();
-	}
+
 }

@@ -55,10 +55,21 @@ ClapTrap::ClapTrap(std::string name):
 */
 void	ClapTrap::attack(std::string const & target)
 {
-	std::cout << "The Claptrap with the dashing name "
-		<< _name << " attacks " << target
-		<< ". It deals a great " << _attack_damage << " of damage!"
-		<< std::endl;
+	if (this->_energy_points > 0)
+	{
+		this->_energy_points -= 1;
+		std::cout << "The Claptrap with the dashing name "
+			<< _name << " attacks " << target << ". It deals a great " << _attack_damage << " of damage!"
+			<< " (-1 energy point)"
+			<< std::endl;
+	}
+	else
+	{
+		std::cout << "The Claptrap with the dashing name "
+			<< _name << " wants to attack " << target << " but cannot."
+			<< "He has " << this->_energy_points << " energy points!"
+			<< std::endl;	
+	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

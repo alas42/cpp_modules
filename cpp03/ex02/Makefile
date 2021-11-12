@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = frag
 
 SOURCES_FILES = ClapTrap.cpp \
 	ScavTrap.cpp \

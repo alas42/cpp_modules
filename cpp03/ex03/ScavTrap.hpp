@@ -3,6 +3,7 @@
 
 #include "ClapTrap.hpp"
 #include <string>
+#include <iomanip>
 
 class ScavTrap: public virtual ClapTrap
 {
