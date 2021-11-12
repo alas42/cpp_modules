@@ -7,10 +7,25 @@
 class ScavTrap: public ClapTrap
 {
 	public:
-		ScavTrap(std::string name);
+		/*
+		** Canonical Form
+		*/
+		ScavTrap(void);
+		ScavTrap(ScavTrap const & other);
 		~ScavTrap(void);
+		ScavTrap & operator = (ScavTrap const & other);
+
+		/*
+		** Other constructors
+		*/
+		ScavTrap(std::string name);
+
+		/*
+		** Misc
+		*/
 		void	guardGate(void);
 		void	attack(std::string const & target);
+
 };
 
 #endif

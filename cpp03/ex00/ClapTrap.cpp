@@ -1,16 +1,20 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name):
-	_name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+/*
+** Canonical Form
+*/
+ClapTrap::ClapTrap(void):
+	_name("default"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "A new ClapTrap is born called " << _name
-		<< "\nHe has "
-		<< _hit_points
-		<< " hitpoints, "
-		<< _energy_points
-		<< " energy points and "
-		<< _attack_damage
-		<< " attack damage." << std::endl;
+	std::cout << "A new ClapTrap is naturally born called " << _name
+		<< "." << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const & other)
+{
+	*this = other;
+	std::cout << "A new ClapTrap is born thank another called " << _name
+		<< "." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -18,6 +22,35 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "The ClapTrap called " << _name << " is destroyed." << std::endl;
 }
 
+ClapTrap & ClapTrap::operator = (ClapTrap const & other)
+{
+	this->_name = other._name;
+	this->_hit_points = other._hit_points;
+	this->_energy_points = other._energy_points;
+	this->_attack_damage = other._attack_damage;
+	std::cout << "A ClapTrap just got his fonctionnalities changed, he is now called " << _name
+		<< "." << std::endl;
+	return *this;
+}
+/*
+** End of Canonical Form
+*/
+
+/*
+** Other constructors
+*/
+ClapTrap::ClapTrap(std::string name):
+	_name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+{
+	std::cout << "A new ClapTrap is born called " << _name << std::endl;
+}
+/*
+** End of Other constructors
+*/
+
+/*
+** Misc
+*/
 void	ClapTrap::attack(std::string const & target)
 {
 	std::cout << "The Claptrap with the dashing name "
@@ -57,25 +90,20 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (_hit_points == 0)
 	{
 		std::cout << "The Claptrap " <<_name 
-			<< " cannot be repaired. His state is beyond repair with "
-			<< _hit_points << " hitpoint."
+			<< " cannot be repaired. His state is beyond repair with " << _hit_points << " hitpoint."
 			<< std::endl;
 		return ;
 	}
 	if (amount == 0)
 	{
-		std::cout << "The Claptrap " << _name
-			<< " isn't going to be repaired with that. ("
-			<< amount << ")."
+		std::cout << "The Claptrap " << _name << " isn't going to be repaired with that. (" << amount << ")."
 			<< std::endl;
 		return ;
 	}
 	if (_hit_points == 10)
 	{
-		std::cout << "The Claptrap " <<_name 
-			<< " cannot be repaired."
-			<< " His state is still undamaged with "
-			<< _hit_points << " hitpoints."
+		std::cout << "The Claptrap " << _name << " cannot be repaired."
+			<< " His state is still undamaged with " << _hit_points << " hitpoints."
 			<< std::endl;
 	}
 	else
@@ -84,11 +112,11 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		if (amount + _hit_points >= 10)
 			hp_gained = 10 - _hit_points;
 		_hit_points += hp_gained;
-		std::cout << "The Claptrap " << _name
-			<< " is being repaired, he gains "
-			<< hp_gained
-			<< " hitpoints. He now has a wooping "
-			<< _hit_points << " hitpoints pool."
+		std::cout << "The Claptrap " << _name << " is being repaired, he gains "
+			<< hp_gained << " hitpoints. He now has a wooping "	<< _hit_points << " hitpoints pool."
 			<< std::endl;
 	}
 }
+/*
+**  End of Misc
+*/

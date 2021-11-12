@@ -10,13 +10,13 @@ ScavTrap::ScavTrap(void): ClapTrap()
 	this->_attack_damage = 20;
 	this->_max_hit_points = this->_hit_points;
 	std::cout << "A new ScavTrap is naturally born called " << _name
-		<< std::endl;
+		<< "." << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & other): ClapTrap(other)
 {
 	std::cout << "A new ScavTrap is born thank another called " << _name
-		<< std::endl;
+		<< "." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -29,7 +29,7 @@ ScavTrap & ScavTrap::operator = (ScavTrap const & other)
 {
 	ClapTrap::operator=(other);
 	std::cout << "A ScavTrap just got his fonctionnalities changed, he is now called " << _name
-		<< std::endl;
+		<< "." << std::endl;
 	return *this;
 }
 /*

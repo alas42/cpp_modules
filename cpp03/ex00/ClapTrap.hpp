@@ -7,8 +7,22 @@
 class ClapTrap
 {
 	public:
-		ClapTrap(std::string name);
+		/*
+		** Canonical Form
+		*/
+		ClapTrap(void);
+		ClapTrap(ClapTrap const & other);
 		~ClapTrap(void);
+		ClapTrap & operator = (ClapTrap const &  other);
+
+		/*
+		** Other Constructors
+		*/
+		ClapTrap(std::string name);
+		
+		/*
+		** Misc
+		*/
 		void	attack(std::string const & target);
 		void 	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);

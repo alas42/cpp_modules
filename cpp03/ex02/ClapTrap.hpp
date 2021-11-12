@@ -7,12 +7,25 @@
 class ClapTrap
 {
 	public:
-		ClapTrap(std::string name);
+		/*
+		** Canonical Form
+		*/
+		ClapTrap(void);
+		ClapTrap(ClapTrap const & other);
 		~ClapTrap(void);
+		ClapTrap & operator = (ClapTrap const &  other);
 
-		void			attack(std::string const & target);
-		void 			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+		/*
+		** Other Constructors
+		*/
+		ClapTrap(std::string name);
+		
+		/*
+		** Misc
+		*/
+		void	attack(std::string const & target);
+		void 	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 
 	protected:
 		std::string 		_name;
@@ -21,6 +34,7 @@ class ClapTrap
 		int					_attack_damage;
 		unsigned int 		_max_hit_points;
 		unsigned int		_getMaxHitPoints(void);
+
 };
 
 #endif

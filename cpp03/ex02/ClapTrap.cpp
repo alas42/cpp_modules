@@ -1,21 +1,60 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name):
-	_name(name), _hit_points(10), _energy_points(0), _attack_damage(0)
+/*
+** Canonical Form
+*/
+
+ClapTrap::ClapTrap(void):
+	_name("default"), _hit_points(10), _energy_points(10), _attack_damage(0), _max_hit_points(10)
 {
-	this->_max_hit_points = this->_hit_points;
-	std::cout << "A new ClapTrap is born called " << _name
-		<< "."
-		<< std::endl;
+	std::cout << "A new ClapTrap is naturally born called " << _name
+		<< "." << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const & other)
+{
+	*this = other;
+	std::cout << "A new ClapTrap is born thank another called " << _name
+		<< "." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "The ClapTrap called " << _name
-		<< " is destroyed."
+	std::cout << "The ClapTrap called " << _name << " is destroyed."
 		<< std::endl;
 }
 
+ClapTrap & ClapTrap::operator = (ClapTrap const & other)
+{
+	this->_name = other._name;
+	this->_hit_points = other._hit_points;
+	this->_energy_points = other._energy_points;
+	this->_attack_damage = other._attack_damage;
+	this->_max_hit_points = other._max_hit_points;
+	std::cout << "A ClapTrap just got his fonctionnalities changed, he is now called " << _name
+		<< std::endl;
+	return *this;
+}
+/*
+** End of Canonical Form
+*/
+
+/*
+** Other Constructors
+*/
+ClapTrap::ClapTrap(std::string name):
+	_name(name), _hit_points(10), _energy_points(0), _attack_damage(0), _max_hit_points(10)
+{
+	std::cout << "A new ClapTrap is born called " << _name << "."
+		<< std::endl;
+}
+/*
+** End of Other Constructors
+*/
+
+/*
+** Misc
+*/
 void	ClapTrap::attack(std::string const & target)
 {
 	std::cout << "The Claptrap with the dashing name "
@@ -90,8 +129,17 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			<< std::endl;
 	}
 }
+/*
+** End of Misc
+*/
 
+/*
+** Guetters and setters
+*/
 unsigned int	ClapTrap::_getMaxHitPoints(void)
 {
 	return this->_max_hit_points;
 }
+/*
+** End of guetters and setters
+*/

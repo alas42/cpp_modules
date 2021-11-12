@@ -7,13 +7,15 @@
 ClapTrap::ClapTrap(void):
 	_name("default"), _hit_points(10), _energy_points(10), _attack_damage(0), _max_hit_points(10)
 {
-	std::cout << "A new ClapTrap is naturally born called " << _name << "." << std::endl;
+	std::cout << "A new ClapTrap is naturally born called " << _name << "."
+		<< std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & other)
 {
 	*this = other;
-	std::cout << "A new ClapTrap is born thank another called " << _name << "." << std::endl;
+	std::cout << "A new ClapTrap is born thank another called " << _name << "."
+		<< std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -29,8 +31,8 @@ ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 	this->_energy_points = other._energy_points;
 	this->_attack_damage = other._attack_damage;
 	this->_max_hit_points = other._max_hit_points;
-	std::cout << "A ClapTrap just got his fonctionnalities changed, he is now called " << _name
-		<< "." << std::endl;
+	std::cout << "A ClapTrap just got his fonctionnalities changed, he is now called " << _name << "."
+		<< std::endl;
 	return *this;
 }
 /*
