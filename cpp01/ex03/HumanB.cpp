@@ -1,5 +1,8 @@
 #include "HumanB.hpp"
 
+HumanB::HumanB(void)
+{}
+
 HumanB::HumanB(std::string const & name): _name(name)
 {
 	this->_weapon = 0;

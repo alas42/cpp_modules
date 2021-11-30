@@ -1,34 +1,54 @@
 #include "Point.hpp"
 
+/*
+** Canonical form
+*/
 Point::Point(void):_x(0), _y(0)
 {}
 
 Point::Point(Point const &point):_x(point.getx()), _y(point.gety())
 {}
 
-Point::Point(Fixed const x, Fixed const y): _x(x), _y(y)
-{}
-
 Point::~Point(void)
 {}
+/*
+** End of Canonical form
+*/
 
+/*
+** Other constructors
+*/
+Point::Point(Fixed const x, Fixed const y): _x(x), _y(y)
+{}
+/*
+** End of other constructors
+*/
+
+/*
+** Guetters and Setters
+*/
 Fixed const Point::getx(void) const
 {	return this->_x; }
 
 Fixed const Point::gety(void) const
 {	return this->_y; }
-
-
-Point& Point::operator = (Point const &other)
-{
-	std::cout << other.getx() << std::endl;
-	return *this;
-}
+/*
+** End of Guetters and Setters
+*/
 
 /*
-** First step : Get the values that we will be able to modify
-** Second step : Compute
-** Third step : Profit
+** Operators overloads
+*/
+Point& Point::operator = (Point const &other)
+{
+	return *this;
+}
+/*
+** End of operators overloads
+*/
+
+/*
+** Misc
 */
 bool	Point::bsp(Point const a, Point const b, Point const c, Point const point)
 {
@@ -52,3 +72,6 @@ bool	Point::bsp(Point const a, Point const b, Point const c, Point const point)
 		return (s <= 0 && t <= 0 && s + t >= del);
 	return (s >= 0 && t >= 0 && s + t <= del);
 }
+/*
+** End of Misc
+*/

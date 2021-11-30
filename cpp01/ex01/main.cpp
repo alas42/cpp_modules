@@ -1,4 +1,7 @@
 #include "Zombie.hpp"
+/*
+** cstdlib - only for atoi
+*/
 #include <cstdlib>
 
 int	main(void)
@@ -12,7 +15,11 @@ int	main(void)
 		std::cout << "Enter a valid number N of zombies (N > 0):" << std::endl;
 		std::getline(std::cin, entry);
 		if(std::cin.eof())
-				std::cin.clear();
+		{
+			std::cin.clear();
+			std::cout << "Goodbye!" << std::endl;
+			return (0);
+		}
 		n = atoi(entry.c_str());
 		if (n <= 0)
 			std::cout << "\nAren't you a bright one ?" << std::endl;

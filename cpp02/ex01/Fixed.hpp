@@ -6,23 +6,41 @@
 class Fixed
 {
 	public:
+		/*
+		** Canonical form
+		*/
 		Fixed(void);
 		~Fixed(void);
-		Fixed(Fixed const &object);
+		Fixed(Fixed const & object);
+
+		/*
+		** Other constructors
+		*/
 		Fixed(int const n);
 		Fixed(float const f);
-		Fixed& operator = (Fixed const &other);
 
+		/*
+		** Misc
+		*/
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		/*
+		** Guetters and setters
+		*/
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-	
+
+		/*
+		** Operators overload
+		*/
+		Fixed & operator = (Fixed const & other);
+
 	private:
-		int	_fixed;
-		static int const _nb_bits = 8;
+		int					_fixed;
+		static int const	_nb_bits = 8;
 };
 
-std::ostream& operator << (std::ostream& os, Fixed const &fixed);
+std::ostream & operator << (std::ostream & os, Fixed const & fixed);
 
 #endif

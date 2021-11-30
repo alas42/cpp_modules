@@ -13,7 +13,6 @@ class HumanA
 		void	attack(void) const;
 
 	private:
-		HumanA(void);
 		std::string		_name;
 		Weapon& 		_weapon;
 };
