@@ -6,35 +6,42 @@
 /*
 ** DISPLAY RESULT
 */
-void	displayLimit(std::string const & s1, std::string const & s2, std::string const & s3, std::string const & s4)
+int	displayLimit(std::string const & s1, std::string const & s2, std::string const & s3, std::string const & s4)
 {
-	std::cout << "char: " << s1 << "\n"
-		<< "int: " << s2 << "\n"
-		<< "float: " << s3 << "\n"
-		<< "double: " << s4 << std::endl;
+	std::cout << "char: " << s1 << "\n" << "int: " << s2 << "\n" << "float: " << s3 << "\n"	<< "double: " << s4 << std::endl;
+	return (0);
 }
 
-void	display(char s1, int s2, float s3, double s4)
+int		displayOnlyDouble(double s1)
+{
+	std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: " << s1 << std::endl;
+	return (0);
+}
+
+int		displayDoubleFloat(double s1, float s2)
+{
+	std::cout << "char: impossible\nint: impossible\nfloat: "<< s2 << "\ndouble: " << s1 << std::endl;
+	return (0);
+}
+
+int		displayDoubleFloatInt(double s1, float s2, int s3)
+{
+	std::cout << "char: impossible\nint: " << s3 << "\nfloat: "<< s2 << "\ndouble: " << s1 << std::endl;
+	return (0);
+}
+
+int	display(char s1, int s2, float s3, double s4)
 {
 	if (isprint(s1))
-	{
 		std::cout << "char: '" << s1 << "'" << std::endl;
-	}
 	else
-	{
 		std::cout << "char: Non displayable" << std::endl;
-	}
 	std::cout << "int: " << s2 << std::endl;
 	if (s3 - s2 == 0)
-	{
-		std::cout << "float: " << s3 << ".0f\n"
-			<< "double: " << s4 << ".0" << std::endl;
-	}
+		std::cout << "float: " << s3 << ".0f\n" << "double: " << s4 << ".0" << std::endl;
 	else
-	{
-		std::cout << "float: " << s3 << "f\n"
-			<< "double: " << s4 << std::endl;
-	}
+		std::cout << "float: " << s3 << "f\n" << "double: " << s4 << std::endl;
+	return (0);
 }
 
 bool	isValidNumber(std::string const & arg)
@@ -128,8 +135,7 @@ int convert_from_char(std::string const & arg)
 	float	float_num = static_cast<float>(input);
 	int		integer = static_cast<int>(input);
 	double double_num = static_cast<double>(input);
-	display(input, integer, float_num, double_num);
-	return (0);
+	return (display(input, integer, float_num, double_num));
 }
 
 int convert_from_int(std::string const & arg)
@@ -138,23 +144,24 @@ int convert_from_int(std::string const & arg)
 	char	character = static_cast<char>(input);
 	float	float_num = static_cast<int>(input);
 	double	double_num = static_cast<double>(input);
-	display(character, input, float_num, double_num);
-	return (0);
+	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+		return (displayDoubleFloatInt(double_num, float_num, input));
+	return (display(character, input, float_num, double_num));
 }
 
 int convert_from_float(std::string const & arg)
 {
 	if (isLimitFloat(arg))
-	{
-		displayLimit("impossible", "impossible", arg, arg.substr(0, arg.length() - 1));
-		return (0);
-	}
+		return (displayLimit("impossible", "impossible", arg, arg.substr(0, arg.length() - 1)));
 	float input = atof(arg.c_str());
-	int integer = static_cast<int>(input);
 	double double_num = static_cast<double>(input);
+	if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::lowest())
+		return (displayDoubleFloat(double_num, input));
+	int integer = static_cast<int>(input);
+	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+		return (displayDoubleFloatInt(double_num, input, integer));
 	char character = static_cast<char>(input);
-	display(character, integer, input, double_num);
-	return (0);
+	return (display(character, integer, input, double_num));
 }
 
 int convert_from_double(std::string const & arg)
@@ -163,15 +170,19 @@ int convert_from_double(std::string const & arg)
 	{
 		std::string new_str = arg;
 		new_str.append("f");
-		displayLimit("impossible", "impossible", arg, new_str);
-		return (0);
+		return (displayLimit("impossible", "impossible", arg, new_str));
 	}
 	double	input = strtod(arg.c_str(), NULL);
-	int		integer = static_cast<int>(input);
-	char	character = static_cast<char>(input);
+	if (input > std::numeric_limits<float>::max() || input < std::numeric_limits<float>::lowest())
+		return (displayOnlyDouble(input));
 	float	float_num = static_cast<float>(input);
-	display(character, integer, float_num, input);
-	return (0);
+	if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::lowest())
+		return (displayDoubleFloat(input, float_num));
+	int		integer = static_cast<int>(input);
+	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+		return (displayDoubleFloatInt(input, float_num, integer));
+	char	character = static_cast<char>(input);
+	return (display(character, integer, float_num, input));
 }
 
 /*
