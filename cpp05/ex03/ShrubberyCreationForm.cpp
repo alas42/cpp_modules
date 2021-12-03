@@ -40,9 +40,14 @@ void	ShrubberyCreationForm::perform(Bureaucrat const & executor) const
 	std::ofstream ofs;
 	std::string outfile(this->getTarget() + "_shrubbery");
 	ofs.open(outfile.c_str(), std::ios::trunc);
-	ofs << TREE;
-	ofs << executor.getName();
-	ofs.close();
+	if (ofs.is_open())
+	{
+		ofs << TREE;
+		ofs << executor.getName();
+		ofs.close();
+	}
+	else
+		throw (OpeningShrubberyFileException());
 }
 
 Form	* ShrubberyCreationForm::printingForm(std::string const & target)
@@ -52,6 +57,11 @@ Form	* ShrubberyCreationForm::printingForm(std::string const & target)
 /*
 ** End of Misc
 */
+
+const char * ShrubberyCreationForm::OpeningShrubberyFileException::what() const throw()
+{
+	return ("The Shrubbery file could not be opened.");
+}
 
 /*
 ** Guetters and Setters

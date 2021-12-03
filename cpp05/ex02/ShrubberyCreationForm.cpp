@@ -3,7 +3,7 @@
 /*
 ** Canonical Form
 */
-ShrubberyCreationForm::ShrubberyCreationForm(void): Form("John Doe", "shrubbery creation form", 137, 145)
+ShrubberyCreationForm::ShrubberyCreationForm(void): Form("John Doe", "shrubbery creation", 137, 145)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & other): Form(other)
@@ -26,7 +26,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (ShrubberyCreationForm
 /*
 ** Other Constructors
 */
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target): Form(target, "shrubbery creation form", 137, 145)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target): Form(target, "shrubbery creation", 137, 145)
 {}
 /*
 ** End of Other Constructors
@@ -40,14 +40,22 @@ void	ShrubberyCreationForm::perform(Bureaucrat const & executor) const
 	std::ofstream ofs;
 	std::string outfile(this->getTarget() + "_shrubbery");
 	ofs.open(outfile.c_str(), std::ios::trunc);
-	ofs << TREE;
-	ofs << executor.getName();
-	ofs.close();
+	if (ofs.is_open())
+	{
+		ofs << TREE;
+		ofs << executor.getName();
+		ofs.close();
+	}
+	else
+		throw (OpeningShrubberyFileException());
 }
 /*
 ** End of Misc
 */
-
+const char * ShrubberyCreationForm::OpeningShrubberyFileException::what() const throw()
+{
+	return ("The Shrubbery file could not be opened.");
+}
 /*
 ** Guetters and Setters
 */

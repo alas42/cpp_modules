@@ -8,7 +8,7 @@
 int	main(void)
 {
 	Intern  someRandomIntern;
-	Bureaucrat bob("Bob", 20);
+	Bureaucrat bob("Bob", 4);
 	Form*   rrf[4];
 
 	for (int i = 0; i < 4; i++)

@@ -35,6 +35,10 @@
                            .::(@:."
 class ShrubberyCreationForm: public Form
 {
+  class OpeningShrubberyFileException: public std::exception{
+		public:
+			const char * what() const throw();
+	};
 	public :
 		/*
 		** Canonical Form

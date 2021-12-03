@@ -17,33 +17,18 @@ int	main(void)
 	{
 		for (int i = 0; i < 3; i++)
 			bob.executeForm(*f[i]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	try
-	{
 		for (int i = 0; i < 3; i++)
-			f[i]->beSigned(bob);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	try
-	{
+			bob.signForm(*f[i]);
 		for (int i = 0; i < 3; i++)
 			bob.executeForm(*f[i]);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 
 	for (int i = 0; i < 3; i++)
 		delete f[i];
+
 	return 0;
 }

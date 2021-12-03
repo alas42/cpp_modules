@@ -20,7 +20,7 @@ HEADER_FILES = AMateria.hpp \
 OBJS = $(SOURCES_FILES:.cpp=.o)
 
 CPPFLAGS = -Wall -Werror -Wextra
-CC = clang++ -std=c++98
+CC = c++ -std=c++98
 
 all: $(NAME)
 

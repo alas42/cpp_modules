@@ -3,7 +3,7 @@
 /*
 ** Canonical Form
 */
-PresidentialPardonForm::PresidentialPardonForm(void): Form("John Doe", "presidential pardon form", 5, 25)
+PresidentialPardonForm::PresidentialPardonForm(void): Form("John Doe", "presidential pardon", 5, 25)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & other): Form(other)
@@ -26,7 +26,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonF
 /*
 ** Other Constructors
 */
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target): Form(target, "presidential pardon form", 5, 25)
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target): Form(target, "presidential pardon", 5, 25)
 {}
 /*
 ** End of Other Constructors

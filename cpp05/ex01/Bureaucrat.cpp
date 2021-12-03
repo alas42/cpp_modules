@@ -4,7 +4,10 @@
 ** Canonical Form
 */
 Bureaucrat::Bureaucrat(void): _name("John"), _grade(75)
-{}
+{
+	std::cout << GREEN << "Creation of a Bureaucrat named "
+		<< this->getName() << " with a grade of " << this->getGrade() << RESET << std::endl;
+}
 
 Bureaucrat::Bureaucrat(Bureaucrat const & other)
 {
@@ -30,11 +33,14 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & other)
 */
 Bureaucrat::Bureaucrat(std::string const & name, int grade): _name(name)
 {
+	std::cout << GREEN << "Attempting to create a Bureaucrat named "
+		<< this->getName() << " with a grade of " << grade << RESET << std::endl;
 	if (grade < 1)
 		throw(GradeTooHighException());
 	else if (grade > 150)
 		throw(GradeTooLowException());
 	this->_grade = grade;
+	std::cout << GREEN << "Bureaucrat successfully created "<< RESET << std::endl;
 }
 /*
 ** End of Other Constructors
@@ -45,31 +51,38 @@ Bureaucrat::Bureaucrat(std::string const & name, int grade): _name(name)
 */
 void	Bureaucrat::incrementGrade(void)
 {
+	std::cout << MAGENTA << "Attempting to increment(1) the grade of " << this->getName() << RESET << std::endl;
 	if (this->_grade - 1 < 1)
 		throw(GradeTooHighException());
 	this->_grade--;
+	std::cout << MAGENTA << "Incrementation successful" << RESET << std::endl;
 }
 
 void	Bureaucrat::decrementGrade(void)
 {
+	std::cout << MAGENTA << "Attempting to decrement(1) the grade of " << this->getName() << RESET << std::endl;
 	if (this->_grade + 1 > 150)
 		throw(GradeTooLowException());
 	this->_grade++;
+	std::cout << MAGENTA << "Decrementation successful" << RESET << std::endl;
 }
 void	Bureaucrat::incrementGrade(int n)
 {
+	std::cout << MAGENTA << "Attempting to increment(" << n << ") the grade of " << this->getName() << RESET << std::endl;
 	if (this->_grade - n < 1)
 		throw(GradeTooHighException());
 	this->_grade -= n;
+	std::cout << MAGENTA << "Incrementation successful" << RESET << std::endl;
 }
 
 void	Bureaucrat::decrementGrade(int n)
 {
+	std::cout << MAGENTA << "Attempting to decrement(" << n << ") the grade of " << this->getName() << RESET << std::endl;
 	if (this->_grade + n > 150)
 		throw(GradeTooLowException());
 	this->_grade += n;
+	std::cout << MAGENTA << "Decrementation successful" << RESET << std::endl;
 }
-
 
 void	Bureaucrat::signForm(Form & form)
 {
@@ -80,8 +93,8 @@ void	Bureaucrat::signForm(Form & form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->getName() << " cannot sign " << form.getName() << " because "
-			<< e.what() << "." << std::endl;
+		std::cerr << RED << this->getName() << " cannot sign " << form.getName() << " because "
+			<< e.what() << "." << RESET << std::endl;
 	}
 }
 /*
@@ -125,6 +138,6 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 */
 std::ostream & operator << (std::ostream & os, Bureaucrat const & bureaucrat)
 {
-	os << GREEN << bureaucrat.getName() << RESET << ", bureaucrat grade " << RED << bureaucrat.getGrade() << RESET << ".";
+	os << GREEN << bureaucrat.getName() << RESET << ", bureaucrat grade " << MAGENTA << bureaucrat.getGrade() << RESET << ".";
 	return os;
 }

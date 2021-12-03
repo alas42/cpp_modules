@@ -62,7 +62,15 @@ void	Form::execute(Bureaucrat const & executor) const
 		throw(Form::NotSignedException());
 	else if (executor.getGrade() > this->getGradeToExec())
 		throw(Form::GradeTooLowException());
-	this->perform(executor);
+	std::cout << MAGENTA << executor.getName() << " executes " << this->getName() << "." << RESET << std::endl;
+	try 
+	{
+		this->perform(executor);
+	}
+	catch(std::exception & e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
 }
 /*
 ** End of Misc
@@ -98,12 +106,13 @@ bool Form::getIsSigned(void) const
 /*
 ** End of Guetters and Setters
 */
+
 /*
 ** GradeTooHighException
 */
 const char * Form::GradeTooHighException::what() const throw()
 {
-	return ("the grade is too high");
+	return ("the form's grade is too high");
 }
 
 /*
@@ -111,7 +120,7 @@ const char * Form::GradeTooHighException::what() const throw()
 */
 const char * Form::GradeTooLowException::what() const throw()
 {
-	return ("the grade is too low");
+	return ("the form's grade is too low");
 }
 
 /*
@@ -127,13 +136,13 @@ const char * Form:: NotSignedException::what() const throw()
 */
 std::ostream & operator << (std::ostream & os, Form const & form)
 {
-	os << form.getName();
+	os << GREEN << form.getName() << RESET;
 	if (form.getIsSigned())
 		os << " is signed";
 	else
 		os << " is not signed";
-	os << ", the grade required to sign it is " << form.getGradeToSign()
-		<< " and the grade required to execute it is " << form.getGradeToExec()
-		<< ". The target is " << form.getTarget() << ".";
+	os << ", the grade required to sign it is " << MAGENTA << form.getGradeToSign() << RESET
+		<< " and the grade required to execute it is " << MAGENTA << form.getGradeToExec() << RESET
+		<< ".";
 	return os;
 }

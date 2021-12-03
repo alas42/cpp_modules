@@ -38,17 +38,29 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const & target): Form(targe
 void	RobotomyRequestForm::perform(Bureaucrat const & executor) const
 {
 	std::srand(std::time(0));
-	int result = 1 + std::rand()/((RAND_MAX + 1u)/2);
-	if (result == 1)
-		std::cout << "RRRRRRIIIIIIIIIIIIIZZZZZZZZZZZZZZZZZ  " << this->getTarget() << " has been successfully robotomized by " << executor.getName() << "." << std::endl;
+	int result = 1 + std::rand()%(2 - 1 + 1) + 1;
+	std::cout << "RRRRRRIIIIIIIIIIIIIZZZZZZZZZZZZZZZZZ" << std::endl;
+	if (result == 2)
+	{
+		std::cout << this->getTarget() << " has been successfully robotomized by " << executor.getName() << "." << std::endl;
+	}
 	else
-		std::cout << "RRRRRRIIIIIIIIIIIIIZZZZZZZZZZZZZZZZZ  " << this->getTarget() << " wasn't robotomized, " << executor.getName() << " failed." << std::endl;
+		throw (RobotomyFailedException());
 }
 
 Form	* RobotomyRequestForm::printingForm(std::string const & target)
 {
 	return new RobotomyRequestForm(target);
 }
+/*
+** End of Misc
+*/
+
+const char * RobotomyRequestForm::RobotomyFailedException::what() const throw()
+{
+	return ("the robotomy failed.");
+}
+
 /*
 ** End of Misc
 */

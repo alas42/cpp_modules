@@ -15,6 +15,10 @@
 
 class RobotomyRequestForm: public Form
 {
+	class RobotomyFailedException: public std::exception{
+		public:
+			const char * what() const throw();
+	};
 	public :
 		/*
 		** Canonical Form
