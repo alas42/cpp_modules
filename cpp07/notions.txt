@@ -1,0 +1,25 @@
+Introduction to Templates
+
+Awesome and Horrible
+
+pieces of code to be filled, you can tell the compiler to fill it for you =>> new syntax.
+
+1 - Parametric macros (C)
+
+Introduction of a problematic solved by Templates
+multiple fucntions that does the same but have different parameters
+in C (max_int, max_float, max_char etc.) the prototype changes always but the code is the same
+The Parametric Macros in define could have been used (#define max(x, y) ([...]))
+
+The solution is not perfect
+max(foo(x))
+if the x has an edge effet, it will be reproduced two times, it is not related to the calculation.
+
+2 - Templates
+
+new syntax is template < typename T >
+T const & max ( T const & x, T const & y){ return (x >= y ? x : y);}
+
+3 - Default type
+4 - specialization
+
