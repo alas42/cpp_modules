@@ -1,15 +1,6 @@
 NAME = dynamic
 
-SOURCES_FILES = Base.cpp \
-	A.cpp \
-	B.cpp \
-	C.cpp \
-	main.cpp
-
-HEADER_FILES = Base.hpp \
-	A.hpp \
-	B.hpp \
-	C.hpp
+SOURCES_FILES =	main.cpp
 
 OBJS = $(SOURCES_FILES:.cpp=.o)
 
@@ -18,7 +9,7 @@ CC = clang++ -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER_FILES)
+$(NAME): $(OBJS)
 	@$(CC) $(CPPFLAGS) $(SOURCES_FILES) -o $(NAME)
 
 %.o: %.cpp
