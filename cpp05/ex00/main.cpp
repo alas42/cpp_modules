@@ -21,7 +21,17 @@ int	main(void)
 		try
 		{
 			Bureaucrat b1("Patrick", 151);
-			Bureaucrat b2("Pascale", 50);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << RED << e.what() << RESET << std::endl;
+		}
+		std::cout << std::endl;
+	}
+	{
+		try
+		{
+			Bureaucrat b2("Pascale", 0);
 		}
 		catch(const std::exception& e)
 		{

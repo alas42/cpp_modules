@@ -7,6 +7,7 @@
 int	main(void)
 {
 	Bureaucrat bob("bob", 10);
+	Bureaucrat david("David", 5);
 	Form *f[3];
 
 	f[0] = new ShrubberyCreationForm("Bernard");
@@ -21,6 +22,20 @@ int	main(void)
 			bob.signForm(*f[i]);
 		for (int i = 0; i < 3; i++)
 			bob.executeForm(*f[i]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << RESET << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	try
+	{
+		for (int i = 0; i < 3; i++)
+			david.signForm(*f[i]);
+		for (int i = 0; i < 3; i++)
+			david.executeForm(*f[i]);
 	}
 	catch(const std::exception& e)
 	{

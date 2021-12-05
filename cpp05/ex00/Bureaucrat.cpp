@@ -108,7 +108,7 @@ int	Bureaucrat::getGrade(void) const
 */
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("The grade is too high");
+	return ("The bureaucrat's grade is too high");
 }
 
 /*
@@ -116,7 +116,7 @@ const char * Bureaucrat::GradeTooHighException::what() const throw()
 */
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("The grade is too low");
+	return ("The bureaucrat's grade is too low");
 }
 
 /*

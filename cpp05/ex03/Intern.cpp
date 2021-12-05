@@ -50,7 +50,7 @@ Form * Intern::makeForm(std::string const & form_name, std::string const & targe
 	{
 		if (!form_name.compare(types_form[i]))
 		{
-			std::cout << "The intern creates " << form_name << "." << std::endl;
+			std::cout << "The intern creates a " << form_name << " form." << std::endl;
 			return printing_form[i](target);
 		}
 	}

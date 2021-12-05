@@ -27,6 +27,10 @@ class Form
 		public:
 			const char * what() const throw();
 	};
+	class AlreadySignedException: public std::exception{
+		public:
+			const char * what() const throw();
+	};
 	public :
 		/*
 		** Canonical Form
@@ -39,7 +43,7 @@ class Form
 		/*
 		** Other constructors
 		*/
-		Form(std::string const & target, std::string const & name, int grade_to_sign, int grade_to_exec);
+		Form(std::string const & target, std::string const & name, int grade_to_exec, int grade_to_sign);
 
 		/*
 		** Misc
