@@ -1,0 +1,16 @@
+Standard Template Library
+2 important things
+Containers && algorithms 
+
+Containers
+std::list 
+std::map<std::string, IOperation *> map1.
+map["opA"] = new OperationA;
+[etc]
+
+std::vector
+std::list<int>::const_iterator it;
+
+Algorithms
+Collections of operations on containers
+example: for_each(begin, end, function)

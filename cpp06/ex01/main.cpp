@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdint.h>
 
 struct Data
 {
@@ -24,11 +25,12 @@ Data	*	deserialize(uintptr_t raw)
 int		main(void)
 {
 	uintptr_t raw;
+
 	Data * data = new Data;
 	Data * receiver = NULL;
 
-	data->value = 5;
-	std::cout << "data.value = " << data->value << std::endl;
+	data->value = 98;
+	std::cout << "data->value = " << data->value << std::endl;
 
 	raw = serialize(data);
 	receiver = deserialize(raw);

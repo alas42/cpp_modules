@@ -1,8 +1,9 @@
-NAME = iter
+NAME = span
 
-HEADER_FILES = iter.hpp
+HEADER_FILES = span.hpp
 
-SOURCES_FILES =	main.cpp
+SOURCES_FILES =	span.cpp \
+	main.cpp
 
 OBJS = $(SOURCES_FILES:.cpp=.o)
 

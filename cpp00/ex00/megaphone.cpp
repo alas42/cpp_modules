@@ -7,20 +7,22 @@ int	main(int argc, char *argv[])
 	int	i;
 	int	j;
 	std::locale loc;
+	std::string	print_string;
 
-	i = 1;
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	while (i < argc)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (0);
+	}
+	for(i = 1; i < argc; i++)
 	{
 		j = 0;
 		while (argv[i][j])
 		{
-			std::cout << std::toupper(argv[i][j], loc);
+			print_string.push_back(std::toupper(argv[i][j]));
 			j++;
 		}
-		i++;
 	}
-	std::cout << "\n";
+	std::cout << print_string << std::endl;
 	return (0);
 }

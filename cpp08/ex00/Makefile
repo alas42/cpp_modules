@@ -1,6 +1,6 @@
-NAME = iter
+NAME = easyfind
 
-HEADER_FILES = iter.hpp
+HEADER_FILES = easyfind.hpp
 
 SOURCES_FILES =	main.cpp
 

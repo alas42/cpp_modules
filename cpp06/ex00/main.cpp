@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include <climits>
+#include <limits>
 #include <cmath>
 
 /*
@@ -144,7 +144,7 @@ int convert_from_int(std::string const & arg)
 	char	character = static_cast<char>(input);
 	float	float_num = static_cast<int>(input);
 	double	double_num = static_cast<double>(input);
-	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+	if (input > std::numeric_limits<char>::max() || input < -(std::numeric_limits<char>::max()))
 		return (displayDoubleFloatInt(double_num, float_num, input));
 	return (display(character, input, float_num, double_num));
 }
@@ -155,10 +155,10 @@ int convert_from_float(std::string const & arg)
 		return (displayLimit("impossible", "impossible", arg, arg.substr(0, arg.length() - 1)));
 	float input = atof(arg.c_str());
 	double double_num = static_cast<double>(input);
-	if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::lowest())
+	if (input > std::numeric_limits<int>::max() || input < -(std::numeric_limits<int>::max()))
 		return (displayDoubleFloat(double_num, input));
 	int integer = static_cast<int>(input);
-	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+	if (input > std::numeric_limits<char>::max() || input < -(std::numeric_limits<char>::max()))
 		return (displayDoubleFloatInt(double_num, input, integer));
 	char character = static_cast<char>(input);
 	return (display(character, integer, input, double_num));
@@ -173,13 +173,13 @@ int convert_from_double(std::string const & arg)
 		return (displayLimit("impossible", "impossible", arg, new_str));
 	}
 	double	input = strtod(arg.c_str(), NULL);
-	if (input > std::numeric_limits<float>::max() || input < std::numeric_limits<float>::lowest())
+	if (input > std::numeric_limits<float>::max() || input < -(std::numeric_limits<float>::max()))
 		return (displayOnlyDouble(input));
 	float	float_num = static_cast<float>(input);
-	if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::lowest())
+	if (input > std::numeric_limits<int>::max() || input < -(std::numeric_limits<int>::max()))
 		return (displayDoubleFloat(input, float_num));
 	int		integer = static_cast<int>(input);
-	if (input > std::numeric_limits<char>::max() || input < std::numeric_limits<char>::lowest())
+	if (input > std::numeric_limits<char>::max() || input < -(std::numeric_limits<char>::max()))
 		return (displayDoubleFloatInt(input, float_num, integer));
 	char	character = static_cast<char>(input);
 	return (display(character, integer, float_num, input));

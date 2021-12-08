@@ -1,6 +1,6 @@
-NAME = iter
+NAME = array
 
-HEADER_FILES = iter.hpp
+HEADER_FILES = Array.hpp
 
 SOURCES_FILES =	main.cpp
 
