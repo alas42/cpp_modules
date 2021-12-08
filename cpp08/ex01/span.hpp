@@ -37,7 +37,6 @@ class Span
 		std::vector<int> const &	getVector(void) const;
 
 	private:
-		Span(int N);
 		unsigned int		_max_size;
 		std::vector<int>	_vector;
 };

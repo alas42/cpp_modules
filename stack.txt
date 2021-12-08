@@ -1,0 +1,81 @@
+What is a stack ?
+    .A stack is a CONTAINER that gives the possibility of a LIFO (last in, first out)
+    .A stack is based on another templated container : the std::deque
+
+!ONLY A SPECIFIC SET OF FUNCTIONS IS PROVIDED!
+
+What does the stack offer / do ?
+    .THE STACK pushes and pops elements from the back
+    .The stack uses push- and pop-back from underlying container
+
+It has two template paramaters
+    T - the type that the stack stores
+    Container - Underlying container that the stack uses (that actually stores the element)
+
+What has to offer the container so that it works ?
+    .Three things:
+        1. back()
+        2. push_back()
+        3. pop_back()
+
+Which standard container satisfy these things ?
+    .Three container:
+        1. std::vector
+        2. std::deque
+        3. std::list
+
+THE STANDARD DEQUE IS USED if not specified
+
+MEMBER FUNCTIONS OF THE stack
+    .EIGHT FUNCTIONS:
+        1. constructor
+        2. destructor
+        3. operator =
+        4. top
+        5. empty
+        6. size
+        7. push
+        8. pop
+
+
+WHAT IS DEQUE ?
+    .std::deque (double-ended queue)
+    . It is a container called an !indexed sequence container!
+
+What does the deque offers / do ?
+    . IT ALLOWS A FAST insertion and deletion IN ITS beginning and ended
+    . indexed access to a deque has to be with double deferencing
+
+It has two template paramaters
+    T - the type of the elements it has to stores
+    Allocator - used to acquire and release memory and to construct and destroy elements
+        in the memory
+
+The Iterators it used CAN BE INVALIDATED
+    .But HOW ?
+        .If we erase, resize, pop_front and pop_back
+
+MEMBER FUNCTIONS OF THE deque
+    .Twentytwo FUNCTIONS:
+        1. constructor
+        2. destructor
+        3. operator +
+        4. get_allocator
+        5. at
+        6. operator []
+        7. front
+        8. back
+        9. empty
+        10. size
+        11. max_size
+        12. clear
+        13. insert
+        14. erase
+        15. push_back
+        16. pop_back
+        17. push_front
+        18. pop_front
+        19. resize
+        20. swap
+        21. begin
+        22. end
