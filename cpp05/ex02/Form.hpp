@@ -55,11 +55,11 @@ class Form
 		/*
 		** Guetters and setters
 		*/
-		int		getGradeToExec(void) const;
-		int		getGradeToSign(void) const;
+		int					getGradeToExec(void) const;
+		int					getGradeToSign(void) const;
 		std::string const & getTarget(void) const;
 		std::string const & getName(void) const;
-		bool	getIsSigned(void) const;
+		bool				getIsSigned(void) const;
 
 	private :
 		std::string const	_target;

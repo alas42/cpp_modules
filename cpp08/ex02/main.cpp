@@ -42,6 +42,7 @@ int main(void)
 	std::cout << std::endl;
 
 	{ // LOOPING THROUGH THE LIST AND THE MUTANTSTACK
+		std::cout << GREEN << "Normal iterations" << RESET << std::endl;
 		std::list<int>::iterator	itl = mlist.begin();
 		
 		MutantStack<int>::iterator	it = mstack.begin();
@@ -63,6 +64,16 @@ int main(void)
 
 	std::cout << std::endl;
 
+	{
+		std::cout << GREEN << "Reverse iterations" << RESET << std::endl;
+		for (MutantStack<int>::reverse_iterator i = mstack.rbegin();  i != mstack.rend(); ++i )
+		{
+			std::cout << "Value in mutantstack: " << *i << std::endl;
+		}
+	}
+
+	std::cout << std::endl;
+
 	{ // ASSIGNATION TEST
 		MutantStack<int>	empty;
 		empty = mstack;
@@ -79,7 +90,9 @@ int main(void)
 	std::cout << std::endl;
 
 	{ // CREATION OF A STANDARD STACK BASED ON OUR MUTANTSTACK
+		std::cout << GREEN << "Creation of a standard stack with the copy constructor based on our MutantStack" << RESET << std::endl;
 		std::stack<int> s(mstack);
+		std::cout << "Size of standard stack : " << s.size() << std::endl;
 	}
 
 	return 0;

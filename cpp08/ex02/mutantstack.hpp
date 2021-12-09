@@ -21,10 +21,7 @@ class MutantStack: public std::stack<T>
 		{
 			std::cout << GREEN << "A MutantStack has been created " << RESET << std::endl;
 		}
-		~MutantStack<T>(void)
-		{
-			std::cout << RED << "A MutantStack has been deleted" << RESET << std::endl;
-		}
+		~MutantStack<T>(void){}
 		MutantStack<T>(MutantStack<T> const & other)
 		{
 			*this = other;
@@ -34,6 +31,7 @@ class MutantStack: public std::stack<T>
 			if (this != &other)
 			{
 				std::stack<T>::operator=(other);
+				this->c = other.c;
 			}
 			return (*this);
 		}
@@ -49,6 +47,16 @@ class MutantStack: public std::stack<T>
 		MutantStack<T>::iterator end()
 		{
 			return this->c.end();
+		}
+
+		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+		MutantStack<T>::reverse_iterator rbegin()
+		{
+			return this->c.rbegin();
+		}
+		MutantStack<T>::reverse_iterator rend()
+		{
+			return this->c.rend();
 		}
 };
 
