@@ -25,15 +25,30 @@ class Span
 	};
 
 	public:
+		/*
+		** Canonical Form
+		*/
 		Span(void);
-		Span(unsigned int N);
 		~Span(void);
 		Span(Span const & other);
 		Span & operator = (Span const & other);
-		void	addNumber(int new_number);
-		void	addNumberRange(int * begin, int * end);
-		int		shortestSpan(void);
-		int		longestSpan(void);
+
+		/*
+		** Other constructor
+		*/
+		Span(unsigned int N);
+
+		/*
+		** Misc
+		*/
+		void						addNumber(int new_number);
+		void						addNumberRange(int * begin, int * end);
+		int							shortestSpan(void);
+		int							longestSpan(void);
+
+		/*
+		** Guetter
+		*/
 		std::vector<int> const &	getVector(void) const;
 
 	private:

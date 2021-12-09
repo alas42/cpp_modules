@@ -2,16 +2,16 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
-# include <algorithm>
 # include <deque>
+# include <stack>
 
 # define RESET "\033[0m"
 # define GREEN "\033[32m"
 # define MAGENTA "\033[35m"
 # define RED "\033[31m"
 
-template < typename T >
-class MutantStack: public std::deque<T>
+template < typename T = int>
+class MutantStack: public std::stack<T>
 {
 	public :
 		/*
@@ -25,34 +25,30 @@ class MutantStack: public std::deque<T>
 		{
 			std::cout << RED << "A MutantStack has been deleted" << RESET << std::endl;
 		}
-		MutantStack<T>(MutantStack const & other)
+		MutantStack<T>(MutantStack<T> const & other)
 		{
 			*this = other;
 		}
 		MutantStack<T> & operator = (MutantStack<T> const & other)
 		{
-			if (!(this == &other))
+			if (this != &other)
 			{
-				std::deque<T>::operator=(other);
+				std::stack<T>::operator=(other);
 			}
 			return (*this);
 		}
+
 		/*
 		** Misc
 		*/
-		void	push(T const & thing)
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		MutantStack<T>::iterator begin()
 		{
-			this->push_back(thing);
+			return this->c.begin();
 		}
-
-		void	pop(void)
+		MutantStack<T>::iterator end()
 		{
-			this->pop_back();
-		}
-
-		T &		top(void)
-		{
-			return this->back();
+			return this->c.end();
 		}
 };
 
